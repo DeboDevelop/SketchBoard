@@ -3,19 +3,21 @@ const bcrypt = require('bcrypt');
 const User = require('./models/users');
 
 function initialize(passport) {
-
+    //Authentication User
     const authenticateUser = async (email, password, done) => {
         let user;
+        //Finding the User
         try {
             user = await getUserbyEmail(email)
         } catch (e) {
             console.log(e)
         }
-        //console.log(user)
+        //If User is not found
         if(user == null){
             return done(null, false, { message: 'No user with that Email' });
         }
         
+        //Comparing Password
         try {
             if( await bcrypt.compare(password, user.password)) {
                 return done(null, user)
@@ -35,6 +37,7 @@ function initialize(passport) {
     });
 }
 
+//Function to find user by email
 async function getUserbyEmail(email)
 {
     let user; 
@@ -56,6 +59,7 @@ async function getUserbyEmail(email)
     })
 }
 
+//Function to find user by id 
 async function getUserbyId(id) {
     let user;
     await User.findById(id, (err, item)=>{
