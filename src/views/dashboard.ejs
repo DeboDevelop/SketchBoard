@@ -3,12 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>DashBoard</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script>
+        let cv;
+
+        function setup() {
+            cv = createCanvas(windowWidth-18, windowHeight-46);
+            cv.parent('myContainer');
+            background(51);
+        }
+
+        function draw() {
+        }
+
+    </script>
 </head>
 <body>
-    <h1>Hi <%= name %>!</h1>
-    <form action="/logout?_method=DELETE" method="POST">
-        <button type="submit">Logout</button>
-    </form>
+    <div id="navbar">
+        <div id="logout">
+            <form action="/logout?_method=DELETE" method="POST">
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+    </div>
+    <div id="myContainer">
+    </div>
 </body>
+<style>
+#navbar {
+    list-style-type: none;
+    overflow: hidden;
+    width: 100%;
+    box-shadow: 0 2px 2px -2px rgba(0,0,0,.9);
+    background-color: #ff0000;
+}
+
+#logout {
+    float: right;
+}
+</style>
 </html>
