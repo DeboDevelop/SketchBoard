@@ -1,12 +1,13 @@
 let cv;
 let socket;
-let sweight = 5;
+let sweight;
 
 //Function to setup everything
 function setup() {
   cv = createCanvas( document.body.clientWidth, windowHeight);
   cv.parent('myContainer');
   background(51);
+  sweight = 5;
 
   socket = io.connect('http://localhost:3000');
   socket.on('mouse', newDrawing);
@@ -27,6 +28,10 @@ function newDrawing(data) {
 function clearDrawing() {
   background(51);
   socket.emit('clear');
+}
+
+function changeWeight() {
+  sweight  = document.getElementById("weight").value;
 }
 
 //Function to draw

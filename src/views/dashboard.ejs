@@ -12,7 +12,11 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-light" id="navbar">
-        <button onclick="clearDrawing()" class="btn btn-danger">Clear</button>
+        <button class="btn btn-danger" onclick="clearDrawing()">Clear</button>
+        <div class="ml-auto">
+            <input type="range" id="weight" class="custom-range" min="5" max="50">
+            <button class="btn btn-info" onclick="changeWeight()">Change Stroke</button>
+        </div>
         <div class="ml-auto" id="logout">
             <form action="/logout?_method=DELETE" method="POST">
                 <button class="btn btn-danger" type="submit">Logout</button>
