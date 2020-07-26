@@ -3,6 +3,7 @@ if( process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
 }
 //Adding required packages
+const http = require('http');
 const express = require('express');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
@@ -10,9 +11,17 @@ const flash = require('express-flash');
 const session = require('express-session');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
+const socketio = require('socket.io');
+
+//To handle unhandledRejection of promise
+process.on('unhandledRejection', (reason, p) => { throw reason });
 
 //Intialize Express
 const app = express();
+//Creating Server
+const server = http.createServer(app);
+//Initializing Socketio
+const io = socketio(server);
 
 //Importing required files
 const initializePassport = require('./passport-config');
@@ -136,7 +145,7 @@ async function getUserbyEmail(email)
             if(err)
             {
                 //If any error occur then reject the promise
-                reject({ message: "Something Wrong inside Promise"})
+                reject({ message: "Something Wrong inside Promise in server.js"})
             }
             else {
                 user = item;
@@ -147,6 +156,7 @@ async function getUserbyEmail(email)
             resolve(user)
         } else {
             //If user is not found thn sent null
+            console.log("User not found by email in server.js")
             resolve(null)
         }
     })
@@ -156,6 +166,6 @@ async function getUserbyEmail(email)
 const PORT = process.env.PORT || 3000;
 
 //Listening to port
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`The Server is running in Port ${PORT}`);
 })

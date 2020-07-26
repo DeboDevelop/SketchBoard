@@ -40,21 +40,26 @@ function initialize(passport) {
 //Function to find user by email
 async function getUserbyEmail(email)
 {
-    let user; 
-    await User.findOne( {email}, (err, item)=>{
-        if(err)
-        {
-            console.log(err)
-        }
-        else {
-            user = item;
-        }
-    });
-    return new Promise((resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
+        let user;
+        //Checking if user exist or not
+        await User.findOne( {email}, (err, item)=>{
+            if(err)
+            {
+                //If any error occur then reject the promise
+                reject({ message: "Something Wrong inside Promise of getUserbyEmail in passport-config.js"})
+            }
+            else {
+                user = item;
+            }
+        });
         if(user) {
+            //If user is found then resolve with user object
             resolve(user)
         } else {
-            reject({ message: "Something Wrong happend Here"})
+            //If user is not found thn sent null
+            console.log("User not found by email")
+            resolve(null)
         }
     })
 }
@@ -62,10 +67,12 @@ async function getUserbyEmail(email)
 //Function to find user by id 
 async function getUserbyId(id) {
     let user;
+    //Checking if user exist or not
     await User.findById(id, (err, item)=>{
         if(err)
         {
-            console.log(err)
+            //If any error occur then reject the promise
+            reject({ message: "Something Wrong inside Promise of getUserbyId in passport-config.js"})
         }
         else {
             user = item;
@@ -73,9 +80,12 @@ async function getUserbyId(id) {
     });
     return new Promise((resolve, reject) => {
         if(user) {
+            //If user is found then resolve with user object
             resolve(user)
         } else {
-            reject({ message: "Something Wrong happend Here"})
+            //If user is not found thn sent null
+            console.log("User not found by Id");
+            resolve(null)
         }
     })
 }

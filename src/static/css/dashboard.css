@@ -1,6 +1,7 @@
 body{
     overflow-x: hidden;
     overflow-y: hidden;
+    background-color: #333333;
 }
 #navbar {
     list-style-type: none;
