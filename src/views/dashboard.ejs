@@ -4,43 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DashBoard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/sketchy/bootstrap.min.css" integrity="sha384-NkI/Nlr1DZ5rUXWWdnuZb97FQRgCCcwC66DC+HUCY0oVx6BgBHUfPcwL1vwp93JZ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
-    <script>
-        let cv;
-
-        function setup() {
-            cv = createCanvas(windowWidth-18, windowHeight-46);
-            cv.parent('myContainer');
-            background(51);
-        }
-
-        function draw() {
-        }
-
-    </script>
+    <script src="js/sketch.js"></script>
+    <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
-    <div id="navbar">
-        <div id="logout">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light" id="navbar">
+        <div class="ml-auto" id="logout">
             <form action="/logout?_method=DELETE" method="POST">
-                <button type="submit">Logout</button>
+                <button class="btn btn-danger" type="submit">Logout</button>
             </form>
         </div>
-    </div>
+    </nav>
     <div id="myContainer">
     </div>
 </body>
-<style>
-#navbar {
-    list-style-type: none;
-    overflow: hidden;
-    width: 100%;
-    box-shadow: 0 2px 2px -2px rgba(0,0,0,.9);
-    background-color: #ff0000;
-}
-
-#logout {
-    float: right;
-}
-</style>
 </html>

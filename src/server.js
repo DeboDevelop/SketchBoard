@@ -18,6 +18,9 @@ const app = express();
 const initializePassport = require('./passport-config');
 const User = require('./models/users');
 
+//Static files
+app.use(express.static('static'))
+
 //Initialize Passport
 initializePassport(passport);
 
