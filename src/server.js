@@ -20,7 +20,7 @@ process.on('unhandledRejection', (reason, p) => { throw reason });
 const app = express();
 //Creating Server
 const server = http.createServer(app);
-//Initializing Socketio
+//Initializing Socketio object
 const io = socketio(server);
 
 //Importing required files
@@ -161,6 +161,16 @@ async function getUserbyEmail(email)
         }
     })
 }
+
+//Listening for a user's connection
+io.sockets.on('connection', (socket) => {
+    console.log(`A user Connected ${socket.id}`);
+
+    //Emiting the drawing data
+    socket.on('mouse', (data) => {
+        socket.broadcast.emit('mouse', data)
+    });
+});
 
 //port for listening
 const PORT = process.env.PORT || 3000;
