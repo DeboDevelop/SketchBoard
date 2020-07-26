@@ -17,6 +17,16 @@
             <input type="range" id="weight" class="custom-range" min="5" max="50">
             <button class="btn btn-info" onclick="changeWeight()">Change Stroke</button>
         </div>
+        <div class="form-group ml-auto">
+            <select class="" id="lineColor">
+              <option>White</option>
+              <option>Sky Blue</option>
+              <option>Pink</option>
+              <option>Yellow</option>
+              <option>Green</option>
+            </select>
+            <button class="btn btn-info" onclick="changeColour()">Change Color</button>
+        </div>
         <div class="ml-auto" id="logout">
             <form action="/logout?_method=DELETE" method="POST">
                 <button class="btn btn-danger" type="submit">Logout</button>
