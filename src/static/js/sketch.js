@@ -1,5 +1,6 @@
 let cv;
 let socket;
+let sweight = 5;
 
 function setup() {
   cv = createCanvas( document.body.clientWidth, windowHeight);
@@ -9,5 +10,8 @@ function setup() {
   socket = io.connect('http://localhost:3000');
 }
 
-function draw() {
+function mouseDragged() {
+  stroke(255);
+  strokeWeight(sweight)
+	line(mouseX, mouseY, pmouseX, pmouseY)
 }
