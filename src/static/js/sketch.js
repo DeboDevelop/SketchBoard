@@ -10,6 +10,10 @@ function setup() {
 
   socket = io.connect('http://localhost:3000');
   socket.on('mouse', newDrawing);
+
+  socket.on('clear', () => {
+    background(51);
+  });
 }
 
 //Function to draw the receiving data
@@ -17,6 +21,12 @@ function newDrawing(data) {
   stroke(255, 0, 100);
   strokeWeight(sweight)
 	line(data.x, data.y, data.px, data.py)
+}
+
+//Function to clear the canvas
+function clearDrawing() {
+  background(51);
+  socket.emit('clear');
 }
 
 //Function to draw

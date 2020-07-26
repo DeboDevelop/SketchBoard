@@ -170,6 +170,10 @@ io.sockets.on('connection', (socket) => {
     socket.on('mouse', (data) => {
         socket.broadcast.emit('mouse', data)
     });
+
+    socket.on('clear', () => {
+        socket.broadcast.emit('clear')
+    });
 });
 
 //port for listening
