@@ -36,9 +36,11 @@ function setup() {
   hexColor='#ffffff';
   click=true;
 
-  button = createButton('click me');
+  button = createButton('→');
   button.addClass('start-btn');
-  button.position(19, 19);
+  button.addClass('arrow');
+  button.addClass('arrow-left');
+  button.position(20, 20);
 
   socket = io.connect('http://localhost:3000');
   socket.on('mouse', newDrawing);

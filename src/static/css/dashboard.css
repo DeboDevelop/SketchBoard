@@ -36,3 +36,35 @@ body{
     opacity: 0;
     visibility: hidden;
 }
+
+body {
+    background-color: #333333;
+}
+
+.arrow {
+    border-radius: 50%;
+    font-size: 35px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    outline: none;
+    border:none;
+}
+
+.arrow-left {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.arrow-right {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.arrow-left:hover {
+    scale: 1.5;
+}
+
+.arrow-right:hover {
+    scale: 1.5;
+}
