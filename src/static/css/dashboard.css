@@ -1,13 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
     overflow-x: hidden;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
     background-color: #333333;
 }
 
-#weight {
-    width: 200px;
+#close {
+    float: right;
 }
 
-#lineColor {
-    width: 100px;
+.modal-box {
+    position: fixed;
+    top: 40%;
+    width: 500px;
+    max-width: 80%;
+    opacity: 0;
+    visibility: hidden;
+    background-color: #ffffff;
+    transition: .4s;
+}
+
+.modal-box.show-modal{
+    top: 50%;
+    opacity: 1;
+    visibility: visible;
+    transition: .4s;
+}
+
+.start-btn.show-modal{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

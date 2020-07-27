@@ -4,38 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DashBoard</title>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
-    <script src="js/sketch.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/sketchy/bootstrap.min.css" integrity="sha384-NkI/Nlr1DZ5rUXWWdnuZb97FQRgCCcwC66DC+HUCY0oVx6BgBHUfPcwL1vwp93JZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script src="js/sketch.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-warning" id="navbar">
-        <button class="btn btn-danger" onclick="clearDrawing()">Clear</button>
-        <div class="ml-auto">
-            <h3>Change Stroke</h3>
+    <div class="jumbotron center modal-box">
+        <div class="pb-3">
+            <button class="btn btn-danger" onclick="clearDrawing()">Clear Screen</button>
+            <button class="btn btn-danger stop-btn" id="close">X</button>
+         </div>
+        <div class="pb-3">
+            <h3 class="d-flex justify-content-center">Change Stroke:</h3>
             <input type="range" id="weight" class="custom-range" min="5" max="50" oninput="changeWeight()">
         </div>
-        <div class="ml-auto">
-            <h3>Change Colour</h3>
-            <div class="form-group">
-                <select class="form-control" id="lineColor" onchange="changeColour()">
-                <option>White</option>
-                <option>Sky Blue</option>
-                <option>Pink</option>
-                <option>Yellow</option>
-                <option>Green</option>
-                </select>
-            </div>
+        <div class="d-flex justify-content-center">
+            <h3 class="pr-3">Change Color:</h3>
+            <input type='text' id="colorpicker" class=""/>
         </div>
-        <div class="ml-auto" id="logout">
+        <div class="pt-4" id="logout">
             <form action="/logout?_method=DELETE" method="POST">
-                <button class="btn btn-danger" type="submit">Logout</button>
+                <button class="btn btn-block btn-danger" type="submit">Logout</button>
             </form>
         </div>
-    </nav>
+    </div>
     <div id="myContainer">
     </div>
+    <link rel="stylesheet" href="css/dashboard.css">
 </body>
 </html>

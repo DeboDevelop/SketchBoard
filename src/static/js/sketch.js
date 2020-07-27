@@ -1,7 +1,31 @@
 let cv;
 let socket;
 let sweight;
-let red,green,blue;
+let button;
+let hexColor;
+let click;
+
+$(document).ready(function(){
+  //Function to show toolbox
+  $('.start-btn').click(function(){
+    click = false;
+    $('.modal-box').toggleClass("show-modal");
+    $('.start-btn').toggleClass("show-modal");
+  });
+  //Function to Hide Toolbox
+  $('.stop-btn').click(function(){
+    click = true;
+    $('.modal-box').toggleClass("show-modal");
+    $('.start-btn').toggleClass("show-modal");
+  });
+  //Function to Change color
+  $("#colorpicker").spectrum({
+      color: "#fff",
+      change: function(color) {
+          hexColor = color.toHexString();
+      }
+  });
+});
 
 //Function to setup everything
 function setup() {
@@ -9,9 +33,12 @@ function setup() {
   cv.parent('myContainer');
   background(51);
   sweight = 5;
-  red=255;
-  green=255;
-  blue=255;
+  hexColor='#ffffff';
+  click=true;
+
+  button = createButton('click me');
+  button.addClass('start-btn');
+  button.position(19, 19);
 
   socket = io.connect('http://localhost:3000');
   socket.on('mouse', newDrawing);
@@ -23,7 +50,7 @@ function setup() {
 
 //Function to draw the receiving data
 function newDrawing(data) {
-  stroke(`rgba(${red}, ${green}, ${blue}, 0.8)`);
+  stroke(data.color);
   strokeWeight(data.weight)
 	line(data.x, data.y, data.px, data.py)
 }
@@ -39,50 +66,24 @@ function changeWeight() {
   sweight  = document.getElementById("weight").value;
 }
 
-//Function to Change color
-function changeColour() {
-  let selectedColour = document.getElementById("lineColor").value;
-  if(selectedColour==='White') {
-    red=255;
-    green=255;
-    blue=255;
-  } else if (selectedColour==='Sky Blue')
-  {
-    red=0;
-    green=128;
-    blue=255;
-  } else if(selectedColour==='Pink')
-  {
-    red=255;
-    green=153;
-    blue=255;
-  } else if(selectedColour==='Yellow')
-  {
-    red=255;
-    green=255;
-    blue=0;
-  } else if(selectedColour==='Green')
-  {
-    red=0;
-    green=255;
-    blue=0;
-  }
-}
+
 
 //Function to draw
 function mouseDragged() {
+  if (click===true) {
+    let data = {
+      x: mouseX,
+      y: mouseY,
+      px: pmouseX,
+      py: pmouseY,
+      weight: sweight,
+      color: hexColor
+    };
   
-  let data = {
-    x: mouseX,
-    y: mouseY,
-    px: pmouseX,
-    py: pmouseY,
-    weight: sweight
-  };
-
-  socket.emit('mouse', data);
-
-  stroke(red,green,blue);
-  strokeWeight(sweight)
-	line(mouseX, mouseY, pmouseX, pmouseY)
+    socket.emit('mouse', data);
+  
+    stroke(hexColor);
+    strokeWeight(sweight)
+    line(mouseX, mouseY, pmouseX, pmouseY)
+  }
 }
