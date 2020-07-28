@@ -3,26 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/sketchy/bootstrap.min.css" integrity="sha384-NkI/Nlr1DZ5rUXWWdnuZb97FQRgCCcwC66DC+HUCY0oVx6BgBHUfPcwL1vwp93JZ" crossorigin="anonymous">
     <title>Login Page</title>
 </head>
 <body>
-    <h1>Login</h1>
-    <% if (messages.error) { %>
-        <%= messages.error %>
-    <% } else { %>
-        <%= messages.success %>
-    <% } %>
-    <form action="/login" method="POST">
-        <div>
-            <label for="email">Email: </label>
-            <input type="email" name="email" id="email" required>
-        </div>
-        <div>
-            <label for="password">Password: </label>
-            <input type="password" name="password" id="password" required>
-        </div>
-        <button type="submit">Login</button>
-    </form>
-    <a href="/register">Register</a>
+    <div class="jumbotron center" id="box">
+        <h1>Login</h1>
+        <% if (messages.error) { %>
+            <div class="alert alert-dismissible alert-danger">
+                <%= messages.error %>
+            </div>
+        <% } %>
+        <% if (messages.success) { %>
+            <div class="alert alert-dismissible alert-success">
+                <%= messages.success %>
+            </div>
+        <% } %>
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label for="email">Email Address: </label>
+                <input type="email" class="form-control form-control-lg" name="email" id="email" placeholder="your_email@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password: </label>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg mb-2">Login</button>
+        </form>
+        <Span>Don't have an Account, Register <a href="/register">Here</a>.</Span>
+    </div>
+    <link rel="stylesheet" href="css/login.css">
 </body>
 </html>

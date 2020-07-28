@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+}
+
+h1 {
+    text-align: center;
+}
+
+#box {
+    height: auto;
+    width: 500px;
+    max-width: 80%;
+    background-color: #ffffff;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
