@@ -4,6 +4,7 @@ let sweight;
 let button;
 let hexColor;
 let click;
+let backup_color;
 
 $(document).ready(function(){
   //Function to show toolbox
@@ -34,6 +35,7 @@ function setup() {
   background(51);
   sweight = 5;
   hexColor='#ffffff';
+  backup_color=hexColor;
   click=true;
 
   button = createButton('→');
@@ -88,4 +90,15 @@ function mouseDragged() {
     strokeWeight(sweight)
     line(mouseX, mouseY, pmouseX, pmouseY)
   }
+}
+
+//Function to Select Eraser
+function changeEraser() {
+  backup_color = hexColor;
+  hexColor= '#333333';
+}
+
+//Function to Select Pen
+function changePen() {
+  hexColor = backup_color;
 }

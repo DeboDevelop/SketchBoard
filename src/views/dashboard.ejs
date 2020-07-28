@@ -17,7 +17,12 @@
         <div class="pb-3">
             <button class="btn btn-danger" onclick="clearDrawing()">Clear Screen</button>
             <button class="arrow arrow-right stop-btn" id="close">←</button>
-         </div>
+        </div>
+        <div class="pb-3 pt-3">
+            <button class="btn btn-primary float-left" onclick="changePen()">Pen</button>
+            <button class="btn btn-secondary float-right" onclick="changeEraser()">Eraser</button>
+            <div class="clearfix"></div>
+        </div>
         <div class="pb-3">
             <h3 class="d-flex justify-content-center">Change Stroke:</h3>
             <input type="range" id="weight" class="custom-range" min="5" max="50" oninput="changeWeight()">

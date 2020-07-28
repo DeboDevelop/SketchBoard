@@ -14,6 +14,10 @@ body{
     float: right;
 }
 
+.center {
+    margin: auto;
+}
+
 .modal-box {
     position: absolute;
     left: -100px;
