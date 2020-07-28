@@ -7,31 +7,35 @@
     <title>Login Page</title>
 </head>
 <body>
-    <div class="jumbotron center" id="box">
-        <h1>Login</h1>
-        <% if (messages.error) { %>
-            <div class="alert alert-dismissible alert-danger">
-                <%= messages.error %>
-            </div>
-        <% } %>
-        <% if (messages.success) { %>
-            <div class="alert alert-dismissible alert-success">
-                <%= messages.success %>
-            </div>
-        <% } %>
-        <form action="/login" method="POST">
-            <div class="form-group">
-                <label for="email">Email Address: </label>
-                <input type="email" class="form-control form-control-lg" name="email" id="email" placeholder="your_email@example.com" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password: </label>
-                <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
-            </div>
-            <button type="submit" class="btn btn-primary btn-lg mb-2">Login</button>
-        </form>
-        <Span>Don't have an Account, Register <a href="/register">Here</a>.</Span>
-    </div>
+    <header id="showcase">
+        <div class="jumbotron center" id="box">
+            <h1>Login</h1>
+            <% if (messages.error) { %>
+                <div class="alert alert-dismissible alert-danger">
+                    <%= messages.error %>
+                </div>
+            <% } %>
+            <% if (messages.success) { %>
+                <div class="alert alert-dismissible alert-success">
+                    <%= messages.success %>
+                </div>
+            <% } %>
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label for="email">Email Address: </label>
+                    <input type="email" class="form-control form-control-lg" name="email" id="email" placeholder="your_email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password: </label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg mb-2">Login</button>
+            </form>
+            <Span>Don't have an Account, Register <a href="/register">Here</a>.</Span>
+        </div>
+        <img src="images/login_left.png" id="left" class="jiggle">
+        <img src="images/login_right.png" id="right" class="jiggle">
+    </header>
     <link rel="stylesheet" href="css/login.css">
 </body>
 </html>
