@@ -69,9 +69,15 @@ h1 {
     100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 850px) {
     .jiggle {
         opacity: 0;
         visibility: hidden;
+    }
+}
+
+@media only screen and (max-height: 400px) {
+    #showcase {
+        height: 130vh;
     }
 }
