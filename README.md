@@ -43,12 +43,13 @@ npm v6.14.7 or above.
 
 ## Acknowledgement
 
-Special Thanks to all the people who helped me especially:
+#### Special Thanks to all the people who helped me especially:
 
 [Avirup Dutta](https://github.com/avirupdutta)
+
 [Arkajit Roy](https://github.com/arkajitroy)
 
-Thanks to the following people for providing photos or illustrations:
+#### Thanks to the following people for providing photos or illustrations:
 
 <span>Photo by <a href="https://unsplash.com/@patrickian4?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Patrick Fore</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 <br>
@@ -60,6 +61,6 @@ Image by <a href="https://pixabay.com/users/Bellinon-2931390/?utm_source=link-at
 <br>
 <span>Illustration by <a href="https://vijayverma.co/">Vijay Verma</a> from <a href="https://illlustrations.co/"> illlustrations.co</a>.</span>
 
-#Author
+# Author
 
 [Debajyoti Dutta](https://github.com/DeboDevelop)
