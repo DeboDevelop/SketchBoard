@@ -1,7 +1,7 @@
 {
-  "name": "blackboard",
+  "name": "sketchboard",
   "version": "1.0.0",
-  "description": "",
+  "description": "Sketch Board is a Collaborative Drawing Based Web Application Created with p5.js, Node.js, Socket.io and Passport.js",
   "main": "server.js",
   "scripts": {
     "start": "node server",
@@ -12,7 +12,9 @@
     "passport",
     "socket.io",
     "node.js",
-    "express"
+    "express",
+    "jquery",
+    "bootswatch"
   ],
   "author": "DeboDevelop",
   "license": "GPLv3",

@@ -10,6 +10,10 @@ i {
     color: #ffffff;
 }
 
+i:hover {
+    scale: 1.4;
+}
+
 .showcase::after {
     content: '';
     height: 100vh;

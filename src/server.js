@@ -13,6 +13,8 @@ const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const socketio = require('socket.io');
 
+const { DATABASE_URL } = require("./settings");
+
 //To handle unhandledRejection of promise
 process.on('unhandledRejection', (reason, p) => { throw reason });
 
@@ -34,7 +36,7 @@ app.use(express.static('static'))
 initializePassport(passport);
 
 //Connecting to Database
-mongoose.connect( process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true } );
+mongoose.connect( DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true } );
 const db = mongoose.connection;
 db.on('error', (error) => console.error(error));
 db.once('open', () => console.log('Connected to Database'));
