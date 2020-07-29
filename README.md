@@ -33,11 +33,10 @@ npm v6.14.7 or above.
    `npm install`
 
 3. Run the Server
-
-...* For Development
-...   `npm run dev`
-...* For Production
-...   `npm run start` 
+..* For Development
+..   `npm run dev`
+..* For Production
+..   `npm run start` 
 
 4. Open localhost:3000 to open the homepage and use it.
 
