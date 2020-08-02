@@ -60,6 +60,10 @@ Image by <a href="https://pixabay.com/users/Bellinon-2931390/?utm_source=link-at
 <br>
 <span>Illustration by <a href="https://vijayverma.co/">Vijay Verma</a> from <a href="https://illlustrations.co/"> illlustrations.co</a>.</span>
 
+## License
+
+This project is licensed under the GPLv3 License - see the [LICENSE](LICENSE) file for details
+
 # Author
 
 [Debajyoti Dutta](https://github.com/DeboDevelop)
